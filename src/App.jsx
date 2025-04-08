@@ -1,33 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
 import './App.css'
+import TaskInput from './components/TaskInput'
+import TaskList from './components/TaskList'
+import Login from '.components/Login'
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [tasks, setTasks] = useState([]);
+  const [isLoggedIn, setIsLoggedIn] = useState(
+    JSON.parse(localStorage.getItem('auth') || false)
+  );
+  useEffect(() => {
+    const storedTasks = JSON.parse(localStorage.getItem('tasks') || []);
+    setTasks(storedTasks);
+  }, []);
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
+  const addTask = (task) => {
+    setTasks([...tasks, task]);
+  }
+  const deleteTask = (id) => {
+    setTasks(tasks.filter((task) => task.id !== id));
+  }
+  if(!isLoggedIn) {
+    return <Login setIsLoggedIn={setIsLoggedIn} />;
+  }
   return (
     <>
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        <h1>To-Do Application</h1>
+        <button onClick={() => {
+          setIsLoggedIn(false);
+          localStorage.removeItem('auth')}}>Logout</button>
+        <TaskInput addTask={addTask} />
+        <TaskList tasks={tasks} deleteTask={deleteTask} />
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
