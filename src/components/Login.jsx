@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-
-const Login = ({ onLogin }) => {
+const Login = ({ setIsLoggedIn }) => {
     const [username, setUsername] = useState('');
 
     const handleLogin = () => {
         if (username.trim()) {
-            onLogin(username);
+            localStorage.setItem('auth', true);
+            setIsLoggedIn(true);
         }
     };
 
@@ -24,3 +24,4 @@ const Login = ({ onLogin }) => {
 };
 
 export default Login;
+
