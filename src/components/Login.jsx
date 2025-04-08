@@ -10,7 +10,7 @@ const Login = ({ setIsLoggedIn }) => {
     };
 
     return (
-        <div>
+        <div className="login">
             <h2>Login</h2>
             <input
                 type="text"
