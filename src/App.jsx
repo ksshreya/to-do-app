@@ -27,7 +27,7 @@ function App() {
   }
   return (
     <>
-      <div>
+      <div className="app">
         <h1>To-Do Application</h1>
         <button onClick={() => {
           setIsLoggedIn(false);
