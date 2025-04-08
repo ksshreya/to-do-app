@@ -6,19 +6,22 @@ const TaskList = ({ tasks, deleteTask }) => {
     }
 
     return (
-        <div>
+        <div className="task-list">
             {tasks.map((task) => (
-                <div key={task.id}>
-                    <div>{task.text}</div>
-                    <div>
-                        <span>Priority: {task.priority}</span>
+                <div key={task.id} className={`task ${task.priority.toLowerCase()}`}>
+                    <div className="task-details">
+                        <div>
+                            {task.text}
+                            <br />
+                            <strong>Priority:</strong> {task.priority}
+                        </div>
                         <button onClick={() => deleteTask(task.id)}>Delete</button>
                     </div>
-                    <hr />
                 </div>
             ))}
         </div>
     );
+
 };
 
 export default TaskList;
