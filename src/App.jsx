@@ -1,8 +1,8 @@
+import { useEffect, useState } from 'react';
+import './App.css';
 import Login from "./components/Login";
-import { useEffect, useState } from 'react'
-import './App.css'
-import TaskInput from './components/TaskInput'
-import TaskList from './components/TaskList'
+import TaskInput from './components/TaskInput';
+import TaskList from './components/TaskList';
 
 function App() {
   const [tasks, setTasks] = useState([]);
