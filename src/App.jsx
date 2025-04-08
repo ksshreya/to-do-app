@@ -7,7 +7,7 @@ import TaskList from './components/TaskList';
 function App() {
   const [tasks, setTasks] = useState([]);
   const [isLoggedIn, setIsLoggedIn] = useState(
-    JSON.parse(localStorage.getItem('auth') || false)
+    JSON.parse(localStorage.getItem('auth') || 'false')
   );
   useEffect(() => {
     const storedTasks = JSON.parse(localStorage.getItem('tasks') || []);
