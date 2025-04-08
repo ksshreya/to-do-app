@@ -92,3 +92,29 @@ button {
         margin-left: 0.5rem;
     }
 }
+
+input,
+select,
+button {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #d63384;
+    box-shadow: 0 0 5px rgba(214, 51, 132, 0.5);
+}
+
+button {
+    background-color: #d63384;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #c2186a;
+}
