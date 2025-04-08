@@ -10,7 +10,7 @@ function App() {
     JSON.parse(localStorage.getItem('auth') || 'false')
   );
   useEffect(() => {
-    const storedTasks = JSON.parse(localStorage.getItem('tasks') || []);
+    const storedTasks = JSON.parse(localStorage.getItem('tasks') || '[]');
     setTasks(storedTasks);
   }, []);
   useEffect(() => {
