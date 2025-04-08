@@ -1,4 +1,4 @@
-import Login from '.components/Login'
+import Login from "./components/Login";
 import { useEffect, useState } from 'react'
 import './App.css'
 import TaskInput from './components/TaskInput'
