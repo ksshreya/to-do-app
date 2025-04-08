@@ -39,9 +39,9 @@ body {
     color: #5a2a83;
 }
 
-.task-input button {
-    width: 100%;
-    padding: 0.6rem;
+.task-input button,
+button {
+    padding: 0.6rem 1rem;
     font-weight: bold;
     background-color: #a167c9;
     color: #fff;
@@ -51,7 +51,8 @@ body {
     transition: background-color 0.3s ease;
 }
 
-.task-input button:hover {
+.task-input button:hover,
+button:hover {
     background-color: #844eb9;
 }
 
@@ -86,7 +87,6 @@ body {
 
 button {
     margin-left: 0.5rem;
-    border-radius: 4px;
 }
 
 @media (min-width: 600px) {
@@ -112,3 +112,4 @@ button {
         margin-left: 0.5rem;
     }
 }
+
