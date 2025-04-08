@@ -1,8 +1,8 @@
-import { useState, useEffect } from 'react'
+import Login from '.components/Login'
+import { useEffect, useState } from 'react'
 import './App.css'
 import TaskInput from './components/TaskInput'
 import TaskList from './components/TaskList'
-import Login from '.components/Login'
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -22,7 +22,7 @@ function App() {
   const deleteTask = (id) => {
     setTasks(tasks.filter((task) => task.id !== id));
   }
-  if(!isLoggedIn) {
+  if (!isLoggedIn) {
     return <Login setIsLoggedIn={setIsLoggedIn} />;
   }
   return (
@@ -31,7 +31,8 @@ function App() {
         <h1>To-Do Application</h1>
         <button onClick={() => {
           setIsLoggedIn(false);
-          localStorage.removeItem('auth')}}>Logout</button>
+          localStorage.removeItem('auth')
+        }}>Logout</button>
         <TaskInput addTask={addTask} />
         <TaskList tasks={tasks} deleteTask={deleteTask} />
       </div>
